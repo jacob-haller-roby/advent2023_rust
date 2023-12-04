@@ -1,12 +1,113 @@
 use std::fs;
-use fancy_regex::Regex;
 use std::collections::HashMap;
 
 fn parse_row(row: &str) -> Vec<&str> {
-    Regex::new(r"(?=(\d|one|two|three|four|five|six|seven|eight|nine|zero))").unwrap()
-        .captures_iter(row)
-        .map(|c| c.unwrap().get(1).unwrap().as_str())
-        .collect()
+    let mut matches: Vec<&str> = vec![];
+    for start in 0..row.len() {
+        let substring = &row[start..];
+        if substring.starts_with("1") {
+            matches.push("1");
+            continue;
+        }
+
+        if substring.starts_with("2") {
+            matches.push("2");
+            continue;
+        }
+
+        if substring.starts_with("3") {
+            matches.push("3");
+            continue;
+        }
+
+        if substring.starts_with("4") {
+            matches.push("4");
+            continue;
+        }
+
+        if substring.starts_with("5") {
+            matches.push("5");
+            continue;
+        }
+
+        if substring.starts_with("6") {
+            matches.push("6");
+            continue;
+        }
+
+        if substring.starts_with("7") {
+            matches.push("7");
+            continue;
+        }
+
+        if substring.starts_with("8") {
+            matches.push("8");
+            continue;
+        }
+
+        if substring.starts_with("9") {
+            matches.push("9");
+            continue;
+        }
+
+        if substring.starts_with("0") {
+            matches.push("0");
+            continue;
+        }
+
+        if substring.starts_with("one") {
+            matches.push("one");
+            continue;
+        }
+
+        if substring.starts_with("two") {
+            matches.push("two");
+            continue;
+        }
+
+        if substring.starts_with("three") {
+            matches.push("three");
+            continue;
+        }
+
+        if substring.starts_with("four") {
+            matches.push("four");
+            continue;
+        }
+
+        if substring.starts_with("five") {
+            matches.push("five");
+            continue;
+        }
+
+        if substring.starts_with("six") {
+            matches.push("six");
+            continue;
+        }
+
+        if substring.starts_with("seven") {
+            matches.push("seven");
+            continue;
+        }
+
+        if substring.starts_with("eight") {
+            matches.push("eight");
+            continue;
+        }
+
+        if substring.starts_with("nine") {
+            matches.push("nine");
+            continue;
+        }
+
+        if substring.starts_with("zero") {
+            matches.push("zero");
+            continue;
+        }
+    }
+
+    println!("row: {} digits: {:?}", row, matches);
+    return matches;
 }
 
 fn parse_digit_str(digit_str: &str) -> u32 {
